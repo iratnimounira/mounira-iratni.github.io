@@ -3,13 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!container) return;
 
   const panels = Array.from(container.querySelectorAll('.panel'));
+  const navLinks = Array.from(document.querySelectorAll('.navbar a[href^="#"]'));
 
+  // Flèches de chaque section
   panels.forEach((panel, i) => {
     const left = panel.querySelector('.swipe-left');
     const right = panel.querySelector('.swipe-right');
 
     if (left) left.addEventListener('click', () => scrollToIndex(i - 1));
     if (right) right.addEventListener('click', () => scrollToIndex(i + 1));
+  });
+
+  // Liens internes (menu, boutons "Voir mon parcours", etc.)
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const idx = panels.findIndex(p => '#' + p.id === link.getAttribute('href'));
+      if (idx === -1) return;
+      e.preventDefault();
+      scrollToIndex(idx);
+    });
   });
 
   function isHorizontal() {
@@ -23,19 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!target) return;
 
     if (isHorizontal()) {
-      container.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      container.scrollTo({ left: target.offsetLeft - container.offsetLeft, behavior: 'smooth' });
     } else {
       const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-      // Scroll the page so the target panel is near top (account for sticky nav)
-      window.scrollTo({ top: target.offsetTop - navHeight - 12, behavior: 'smooth' });
+      const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   }
-
-  // Keyboard navigation
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') scrollToIndex(currentVisibleIndex() + 1);
-    if (e.key === 'ArrowLeft') scrollToIndex(currentVisibleIndex() - 1);
-  });
 
   function currentVisibleIndex() {
     const rects = panels.map(p => p.getBoundingClientRect());
@@ -52,4 +59,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return 0;
   }
+
+  // Navigation au clavier
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') scrollToIndex(currentVisibleIndex() + 1);
+    if (e.key === 'ArrowLeft') scrollToIndex(currentVisibleIndex() - 1);
+  });
+
+  // Lien actif dans le menu selon la section visible
+  function updateActiveLink() {
+    const current = panels[currentVisibleIndex()];
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current.id);
+    });
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      updateActiveLink();
+      ticking = false;
+    });
+  }
+
+  container.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateActiveLink();
 });

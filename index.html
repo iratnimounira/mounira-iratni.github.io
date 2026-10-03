@@ -3,177 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mounira Iratni</title>
+    <meta name="description" content="Portfolio de Mounira Iratni, ingénieure logiciel Java et Cloud en alternance chez Dassault Systèmes.">
+    <title>Mounira Iratni · Ingénieure logiciel & Cloud</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
-<script>
-    // Désactiver le clic droit
-    document.addEventListener('contextmenu', e => e.preventDefault());
-
-    // Bloquer F12 et les raccourcis d'inspection
-    document.onkeydown = function(e) {
-        if (e.keyCode === 123) return false; // F12
-        if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) return false; // Ctrl+Shift+I / J
-        if (e.ctrlKey && e.keyCode === 85) return false; // Ctrl+U (Afficher la source)
-    };
-</script>
 <body>
 
     <header class="navbar">
-        <div class="logo">
-            <img src="photo.JPG" alt="Mounira IRATNI" class="avatar">
+        <a href="#home" class="logo">
+            <img src="photo.JPG" alt="Mounira Iratni" class="avatar">
             <span class="nav-name">Mounira IRATNI</span>
-        </div>
-        <nav>
+        </a>
+        <nav aria-label="Navigation principale">
             <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="CV_Mounira_Iratni.pdf" target="_blank">CV ▾</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#home" class="active">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#experience">Parcours</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="CV_Mounira_Iratni.pdf" target="_blank" rel="noopener" class="nav-cv">CV ↗</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="horizontal-sections">
+    <main class="horizontal-sections">
+
+        <!-- 1. ACCUEIL -->
         <section id="home" class="panel hero-section">
-            <div class="swipe-arrow swipe-left"><<</div>
             <div class="panel-content">
                 <div class="hero-photo-bubble">
-                    <img src="photo.JPG" alt="Mounira" class="hero-photo">
+                    <img src="photo.JPG" alt="Portrait de Mounira Iratni" class="hero-photo">
                 </div>
-                <div class="hero-topline">Ingénieure logiciel · DevOps · Cloud</div>
-                <h1 class="hero-title">Hi, I'm <span class="highlight">Mounira</span></h1>
-                <p class="hero-subtitle">Ingénieure logiciel, avec une expérience dans le développement d’outils d’automatisation pour les plateformes cloud. Je souhaite contribuer au développement et au déploiement de services containerisés sur des infrastructures cloud, tout en continuant à approfondir mes compétences en développement logiciel et en technologies cloud.</p>
+                <div class="hero-topline">Ingénieure logiciel · Java · Cloud & DevOps</div>
+                <h1 class="hero-title">Bonjour, je suis <span class="highlight">Mounira</span></h1>
+                <p class="hero-subtitle">
+                    Ingénieure logiciel orientée Cloud-Native et orchestration de services, en alternance chez
+                    <strong>Dassault Systèmes</strong>. Je développe des outils d'automatisation pour les plateformes
+                    cloud et je souhaite contribuer au développement et au déploiement de services containerisés.
+                </p>
 
                 <div class="hero-actions">
-                    <a href="https://theorg.com/org/dassault-systemes/org-chart/mounira-iratni" target="_blank" class="professional-link">View Professional Profile on The Org</a>
-                    <a href="#experience" class="cta-button">View My Work</a>
+                    <a href="#experience" class="cta-button">Voir mon parcours</a>
+                    <a href="https://theorg.com/org/dassault-systemes/org-chart/mounira-iratni" target="_blank" rel="noopener" class="professional-link">Profil professionnel sur The Org</a>
                 </div>
 
                 <div class="hero-stats">
                     <div class="stat-card">
-                        <strong>2</strong>
-                        <span>years in tech</span>
+                        <strong>Bac+5</strong>
+                        <span>Master Informatique Réseaux, Sorbonne Université</span>
                     </div>
                     <div class="stat-card">
-                        <strong>5+</strong>
-                        <span>projects delivered</span>
+                        <strong>2</strong>
+                        <span>missions chez Dassault Systèmes</span>
                     </div>
                     <div class="stat-card">
                         <strong>3</strong>
-                        <span>main skills</span>
+                        <span>projets Cloud & DevOps</span>
                     </div>
                 </div>
-
-
             </div>
-            <div class="swipe-arrow swipe-right">>></div>
+            <button class="swipe-arrow swipe-right" aria-label="Section suivante">&raquo;</button>
         </section>
 
-        <section class="about-section" id="about">
-            <div class="container">
-                <span class="section-tag">À propos</span>
-                <h2 class="section-title">Profil & Compétences</h2>
+        <!-- 2. À PROPOS -->
+        <section id="about" class="panel about-section">
+            <button class="swipe-arrow swipe-left" aria-label="Section précédente">&laquo;</button>
+            <div class="panel-content wide">
+                <div class="section-header">
+                    <span>À propos</span>
+                    <h2>Profil & compétences</h2>
+                </div>
 
-                <div class="about-grid">
-                    <!-- CARTE 1 : Présentation -->
-                    <div class="about-card intro-card">
-                        <h3>Ingénieure Logiciel & Cloud</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Ingénieure logiciel & Cloud</h3>
                         <p>
-                            Passionnée par l'automatisation, la conception de solutions robustes et les infrastructures Cloud. Actuellement chez <strong>Dassault Systèmes</strong>, j'interviens sur la containerisation, les architectures distribuées et les pipelines CI/CD.
+                            Après une première mission Cloud (Kubernetes, Helm, AWS, Terraform), je travaille aujourd'hui
+                            chez <strong>Dassault Systèmes</strong> sur la migration d'un outil d'installation automatisée
+                            vers une architecture client-serveur, en Java.
                         </p>
                         <div class="lang-tags">
-                            <span class="tag">🇫🇷 Français : Courant</span>
-                            <span class="tag">🇬🇧 Anglais : Professionnel</span>
+                            <span class="tag">Kabyle · langue maternelle</span>
+                            <span class="tag">Français · courant</span>
+                            <span class="tag">Arabe · courant</span>
+                            <span class="tag">Anglais · intermédiaire</span>
                         </div>
                     </div>
 
-                    <!-- CARTE 2 : Piliers techniques -->
-                    <div class="about-card skills-card">
-                        <h3>Domaines d'expertise</h3>
+                    <div class="card">
+                        <h3>Compétences techniques</h3>
                         <ul class="skills-list">
-                            <li><strong>Cloud & Infra :</strong> Kubernetes, Docker, Terraform, AWS, Ansible, Helm</li>
-                            <li><strong>Automatisation :</strong> CI/CD, pipelines GitLab, tests automatisés</li>
-                            <li><strong>Développement :</strong> Java, Python, Bash, JavaScript</li>
+                            <li><strong>Cloud & Infra :</strong> AWS, Terraform, Docker, Kubernetes, Helm, Ansible</li>
+                            <li><strong>CI/CD :</strong> pipelines GitLab CI/CD, tests, déploiement continu</li>
+                            <li><strong>Développement :</strong> Java, Spring Boot, Python, Bash, JavaScript</li>
+                            <li><strong>Web :</strong> React, Vue.js, HTML, CSS</li>
+                            <li><strong>Données :</strong> SQL (MySQL, RDS), NoSQL</li>
                             <li><strong>Observabilité :</strong> Prometheus, Grafana</li>
+                            <li><strong>Systèmes :</strong> Linux (Ubuntu, Debian), Windows, Git</li>
                         </ul>
                     </div>
 
-                    <!-- CARTE 3 : Parcours & Formations -->
-                    <div class="about-card education-card">
+                    <div class="card">
                         <h3>Formation</h3>
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div>
-                                <div class="edu-title">Master Informatique & Réseaux (DevOps / Cloud)</div>
-                                <div class="edu-school">Sorbonne Université</div>
+                                <div class="edu-title">Cursus ingénierie logicielle (alternance)</div>
+                                <div class="edu-school">DataScientest · en cours</div>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div>
-                                <div class="edu-title">Master Réseaux, Mobilité & Systèmes Embarqués</div>
-                                <div class="edu-school">Université Mouloud Mammeri</div>
+                                <div class="edu-title">Master Informatique Réseaux</div>
+                                <div class="edu-school">Sorbonne Université, Paris · 2023 – 2025</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div>
+                                <div class="edu-title">Master Réseaux, Mobilité et Systèmes Embarqués</div>
+                                <div class="edu-school">UMMTO, Tizi-Ouzou · 2021 – 2023</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div>
+                                <div class="edu-title">Licence Informatique, Systèmes d'information</div>
+                                <div class="edu-school">UMMTO, Tizi-Ouzou · 2018 – 2021</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <button class="swipe-arrow swipe-right" aria-label="Section suivante">&raquo;</button>
         </section>
 
+        <!-- 3. PARCOURS -->
         <section id="experience" class="panel experience-section">
-            <button class="nav-arrow prev" aria-label="Précédent">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            <div class="panel-content">
+            <button class="swipe-arrow swipe-left" aria-label="Section précédente">&laquo;</button>
+            <div class="panel-content wide">
                 <div class="section-header">
-                    <span>Mes expériences</span>
-                    <h2>École & entreprises</h2>
-                    <p>Voici un résumé de mon parcours académique et professionnel, avec les formations et les postes que j'ai occupés.</p>
+                    <span>Parcours</span>
+                    <h2>Expériences professionnelles</h2>
                 </div>
 
-                <div class="experience-grid">
-                    <div class="experience-card">
-                        <span class="experience-type">Éducation</span>
-                        <h3>Sorbonne Université</h3>
-                        <p>Formation en informatique, spécialisation développement logiciel, conception d'applications et systèmes embarqués.</p>
+                <div class="card-grid">
+                    <div class="card">
+                        <span class="card-type">Alternance · Oct. 2025 – présent</span>
+                        <h3>Ingénieure logiciel Java</h3>
+                        <p class="card-place">Dassault Systèmes · Vélizy-Villacoublay</p>
+                        <p>Migration et enrichissement fonctionnel d'un outil d'installation automatisée (3DEXPERIENCE) vers une architecture client-serveur, au sein de l'équipe PCS Automatisation Enovia.</p>
                         <ul>
-                            <li>Projets de fin d'études en développement web</li>
-                            <li>Compétences en algorithmique, architecture logicielle et gestion de projet</li>
+                            <li>Backend Java / Spring Boot (API REST, authentification JWT)</li>
+                            <li>Frontend React et base de données MySQL</li>
+                            <li>Supervision des métriques avec Prometheus et Grafana</li>
+                            <li>Rédaction des spécifications fonctionnelles</li>
                         </ul>
                     </div>
 
-                    <div class="experience-card">
-                        <span class="experience-type">Alternance</span>
-                        <h3>Software Engineer - Dassault Systèmes</h3>
-                        <p>Développement full stack d'une application interne de gestion et de maintenance, au sein de l'équipe PCS Automatisation Enovia.</p>
+                    <div class="card">
+                        <span class="card-type">Stage · Fév. 2025 – Août 2025</span>
+                        <h3>Développeuse Cloud (Kubernetes / Helm)</h3>
+                        <p class="card-place">Dassault Systèmes · Vélizy-Villacoublay</p>
+                        <p>Projet Cloud Inclusive pour la gestion des services cloud.</p>
                         <ul>
-                            <li>Backend développé en Java avec Spring Boot (API REST)</li>
-                            <li>Frontend développé en React</li>
-                            <li>Base de données MySQL pour la gestion des données</li>
-                            <li>Conception et développement de bout en bout, du modèle de données à l'interface utilisateur</li>
+                            <li>Déploiement d'un proxy basé sur le concept d'opérateurs Kubernetes</li>
+                            <li>Gestion de ressources cloud managées sur AWS avec Terraform</li>
+                            <li>Stratégies de sécurité des échanges Kubernetes / AWS</li>
                         </ul>
                     </div>
 
-                    <div class="experience-card">
-                        <span class="experience-type">Stage / Projet</span>
-                        <h3>Projets académiques</h3>
-                        <p>Réalisations techniques en équipe, gestion agile et livraison de prototypes fonctionnels.</p>
+                    <div class="card">
+                        <span class="card-type">Oct. 2023 – Avr. 2024</span>
+                        <h3>Administration réseaux & systèmes</h3>
+                        <p class="card-place">Algérie Télécom · Tizi-Ouzou</p>
+                        <p>Exploitation et supervision de l'infrastructure réseau et système.</p>
                         <ul>
-                            <li>Applications web en front-end et back-end</li>
-                            <li>Automatisation et tests</li>
+                            <li>Surveillance et résolution proactive des incidents</li>
+                            <li>Installation et configuration d'équipements</li>
+                            <li>VLANs et protocoles de routage</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="swipe-arrow swipe-right">>></div>
+            <button class="swipe-arrow swipe-right" aria-label="Section suivante">&raquo;</button>
         </section>
-    </div>
 
+        <!-- 4. PROJETS -->
+        <section id="projects" class="panel projects-section">
+            <button class="swipe-arrow swipe-left" aria-label="Section précédente">&laquo;</button>
+            <div class="panel-content wide">
+                <div class="section-header">
+                    <span>Projets</span>
+                    <h2>Projets académiques</h2>
+                </div>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <span class="card-type">Février 2025</span>
+                        <h3>CI/CD pour une application web</h3>
+                        <ul>
+                            <li>Conteneurisation avec Docker et déploiement local sur K3s</li>
+                            <li>Pipeline GitLab CI/CD : tests, build, push, déploiement</li>
+                        </ul>
+                        <div class="lang-tags">
+                            <span class="tag">Docker</span><span class="tag">K3s</span><span class="tag">GitLab CI</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-type">Avril 2024</span>
+                        <h3>AutoScaling & Infrastructure as Code</h3>
+                        <ul>
+                            <li>Conception d'une infrastructure cloud scalable et automatisée</li>
+                            <li>Supervision de l'infrastructure avec Prometheus et Grafana</li>
+                        </ul>
+                        <div class="lang-tags">
+                            <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Prometheus</span><span class="tag">Grafana</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-type">Fév. – Juil. 2023</span>
+                        <h3>Optimisation d'énergie dans le Cloud-Edge</h3>
+                        <ul>
+                            <li>Placement de services économe en énergie entre Cloud et Edge</li>
+                            <li>Efficacité énergétique du Fog Computing pour l'IoT</li>
+                        </ul>
+                        <div class="lang-tags">
+                            <span class="tag">Fog Computing</span><span class="tag">IoT</span><span class="tag">Optimisation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="swipe-arrow swipe-right" aria-label="Section suivante">&raquo;</button>
+        </section>
+
+        <!-- 5. CONTACT -->
+        <section id="contact" class="panel contact-section">
+            <button class="swipe-arrow swipe-left" aria-label="Section précédente">&laquo;</button>
+            <div class="panel-content">
+                <div class="section-header">
+                    <span>Contact</span>
+                    <h2>Travaillons ensemble</h2>
+                    <p>Je m'intéresse aux postes d'ingénieure DevOps, Cloud & Infrastructure. N'hésitez pas à m'écrire.</p>
+                </div>
+                <div class="hero-actions">
+                    <a href="mailto:iratni.mounira25@gmail.com" class="cta-button">iratni.mounira25@gmail.com</a>
+                    <a href="https://github.com/iratnimounira" target="_blank" rel="noopener" class="professional-link">GitHub</a>
+                    <a href="CV_Mounira_Iratni.pdf" target="_blank" rel="noopener" class="professional-link">Télécharger mon CV</a>
+                </div>
+                <p class="contact-place">Vélizy-Villacoublay · Paris, France</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
-        <script src="script.js"></script>
 </html>
